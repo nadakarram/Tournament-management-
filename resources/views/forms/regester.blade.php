@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title></title>
+    <link rel="stylesheet" href="{{asset("asset/css/bootstrap.min.css")}}" />
+    <link rel="stylesheet" href="{{asset("asset/css/css_style.css")}}" />
+    <!-- bootstrap icon  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container ">
+        <div class="row row-cols-3" style="height:650px">
+            <div class=" h-100 w-25 d-flex justify-content-center align-items-center">
+                <img src="{{asset("asset/images/Group 7.png")}}" class="w-100" style="height:45% ">
+            </div>
+            <div class=" mt-2 w-75 h-100 d-flex justify-content-center align-content-center align-items-center">
+                <div class="container px-5 py-4 rounded-3 shadow" style="">
+                    <div class="form row " >
+                        <h2 class="display-6 fw-bold">Let's Get Started 🚀</h2>
+                        <p class="lead text-secondary">
+                            sign up your account
+                        </p>
+                        <form action="/adduser" method="POST" class="row">
+                          @csrf
+                            <div class="col-6  form-group">
+                                <label for="inputEmail4" class="form-label ">Name</label>
+                                <input type="text" class="form-control" name="name" value="{{old("name")}}">
+                                <span class="text-danger">
+                                @error("name")
+                                <div class="w-100 bg-danger mt-2 rounded-3 " style="height: 2px"></div>
+                                <p class="text-danger">{{$message}}</p>
+                               
+                                @enderror
+                                </span>
+          
+                            </div>
+                            <div class="col-6 ">
+                                <label for="" class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" name="phone_number" value="{{old("phone_number")}}">
+                                <span class="text-danger">
+                                @error("phone_number")
+                                <div class="w-100 bg-danger mt-2 rounded-3 " style="height: 2px"></div>
+                                <p class="text-danger">{{$message}}</p>
+                                
+                                @enderror
+                                </pspan>
+                               
+                            </div>
+                            <div class="col-md-6 ">
+                                <label for="" class="form-label">Age</label>
+                                <input type="number" class="form-control" name="age" placeholder="" value="{{old("age")}}">
+                                <span class="text-danger">
+                                @error("age")
+                                <div class="w-100 bg-danger mt-2 rounded-3 " style="height: 2px"></div>
+                                <p class="text-danger">{{$message}}</p>
+                               
+                                @enderror
+                                </span>
+                            </div>
+                            <div class="col-6">
+                                <label for="" class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" value="{{old("email")}}" placeholder="abc@gmail.com">
+                                <span class="text-danger"> 
+                                @error("email")
+                                <div class="w-100 bg-danger mt-2 rounded-3 " style="height: 2px"></div>
+                                <p class="text-danger">{{$message}}</p>
+                                   
+                                @enderror
+                                </span>
+                                 
+                            </div>
+                              
+                            {{-- <div class="mb-3">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            </div> --}}
+
+                            
+                            <div class="mb-1 mt-2">
+                                <label for="password" class="form-label">Enter your password</label>
+                                <input type="password" class="form-control" id="password" name="password" value="{{old("password")}}" placeholder="Password">
+                                @error("password") 
+                                <div class="w-100 bg-danger mt-2 rounded-3 " style="height: 2px"></div>
+                                <p class="text-danger">{{$message}}</p>
+                                
+                                @enderror
+                               
+                            </div>
+                            <div class="col-12">
+                                <label for="" class="form-label mt-0">gender</label>
+                                 <br> 
+                                 <div class="">
+                                     <input type="radio" name=gender value="female" class="form-check-input "> female 
+                                 </div>
+                                 
+                                  <input type="radio" name="gender" value="male" class="form-check-input"> male
+                                  <br>
+                                  <span class="text-danger">
+                                  @error("gender")
+                                  {{$message}}
+                                @enderror</span>
+                                </div>
+                         
+                            <button type="submit" class="btn text-light w-100 mt-3" style="background-color: #6f42c1">Continue</button>
+                        </form>
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+  <script src="{{asset("asset/js/bootstrap.bundle.min.js")}}"></script>
+  <script src="{{asset("asset/js/java.js")}}"></script>
+  <script src="https://kit.fontawesome.com/be6c77b871.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
+ 
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="{{asset("asset/css/bootstrap.min.css")}}" />
+    <link rel="stylesheet" href="{{asset("asset/css/new.css")}}" />
+    <!-- bootstrap icon  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container-fluid d-flex justify-content-center align-content-center align-items-center" style="background-color:rgb(255, 255, 255);height:700px;">
+        <div class="form bg-white p-5 rounded-4 shadow" style="width: 700px">
+            <h3 class="text-primary text-center">Sign Up</h3>
+            <?php
+            // if(count($errors)>0){
+            //   foreach ($errors->all() as $error) {
+            //     echo "<li>$error</li>";
+            //   };
+            // }
+            ?>
+                <form class="row  " action="/adduser" method="POST">
+                
+                    @csrf
+                    <div class="col-6 mt-2 form-group <?php $errors->has("user_name")? "is-invalid":''?>">
+                      <label for="inputEmail4" class="form-label ">Name</label>
+                      <input type="text" class="form-control" name="name" value="{{old("name")}}">
+                      <span class="text-danger">
+                      @error("name")
+                      {{$message}}
+                      @enderror
+                      </span>
+                     
+                          
+                     
+
+                    </div>
+                    <div class="col-6 mt-2">
+                      <label for="" class="form-label">Phone Number</label>
+                      <input type="text" class="form-control" name="phone_number" value="{{old("phone_number")}}">
+                      <span class="text-danger">
+                      @error("phone_number")
+                      {{$message}}
+                      @enderror
+                      </pspan>
+                     
+                    </div>
+
+                    <div class="col-12 mt-2">
+                      <label for="" class="form-label">email</label>
+                      <input type="email" class="form-control" name="email" value="{{old("email")}}" placeholder="abc@gmail.com">
+                      <span class="text-danger"> 
+                      @error("email")
+                         {{$message}}
+                       @enderror
+                      </span>
+                       
+                    </div>
+                   
+                    <div class="col-12 mt-2">
+                        <label for="" class="form-label">password</label>
+                        <input type="string" class="form-control" name="password" value="{{old("password")}}" >
+                        <span class="text-danger">
+                        @error("password")
+                         {{$message}}
+                       @enderror
+                        </span>
+                      </div>
+                    <div class="col-md-6 mt-2">
+                      <label for="" class="form-label">age</label>
+                      <input type="number" class="form-control" name="age" placeholder="" value="{{old("age")}}">
+                      <span class="text-danger">
+                      @error("age")
+                      {{$message}}
+                    @enderror
+                      </span>
+                    </div>
+                    <div class="col-12 mt-2">
+                    <label for="" class="form-label">gender</label>
+                     <br> 
+                     <div class="d-block">
+                         <input type="radio" name=gender value="female" class="form-check-input "> female 
+                     </div>
+                     
+                      <input type="radio" name="gender" value="male" class="form-check-input"> male
+                      <br>
+                      <span class="text-danger">
+                      @error("gender")
+                      {{$message}}
+                    @enderror</span>
+                    </div>
+                    
+                    <div class="col-3 p-0 mt-5">
+                      <button type="submit" class="btn btn-primary p-0 m-0">sign up</button>
+                    </div>
+                   
+                  </form>
+
+        
+
+
+
+
+        </div>
+
+    </div>
+  <?php
+            
+                  
+                    ?>
+    
+  
+    <script src="{{asset("asset/js/bootstrap.bundle.min.js")}}"></script>
+    <script src="{{asset("asset/js/java.js")}}"></script>
+    <script src="https://kit.fontawesome.com/be6c77b871.js" crossorigin="anonymous"></script>
+</body>
+</html> --}}
